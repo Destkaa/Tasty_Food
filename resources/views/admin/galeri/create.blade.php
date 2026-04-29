@@ -132,20 +132,8 @@
 </head>
 <body>
 
-    <aside class="sidebar shadow-sm">
-        <div class="sidebar-brand">TastyAdmin.</div>
-        
-        <div class="menu-header" style="font-size: 0.75rem; font-weight: 700; color: #cbd5e0; padding: 1.5rem 1rem 0.5rem; text-transform: uppercase;">Main Menu</div>
-        <a href="{{ route('admin.dashboard') }}" class="menu-item">
-            <i class='bx bxs-dashboard'></i> Dashboard
-        </a>
-        <a href="{{ route('admin.berita.index') }}" class="menu-item">
-            <i class='bx bx-news'></i> Kelola Berita
-        </a>
-        <a href="{{ route('admin.galeri.index') }}" class="menu-item active">
-            <i class='bx bx-image-alt'></i> Kelola Galeri
-        </a>
-    </aside>
+     @include('admin.partials.sidebar')
+
 
     <main class="main-content">
         <div class="mb-4">

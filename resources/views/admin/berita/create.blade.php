@@ -153,28 +153,8 @@
 </head>
 <body>
 
-    <aside class="sidebar shadow-sm">
-        <div class="sidebar-brand">TastyAdmin.</div>
-        
-        <a href="{{ route('admin.dashboard') }}" class="menu-item">
-            <i class='bx bx-home-circle'></i> Dashboard
-        </a>
-        <a href="{{ route('admin.berita.index') }}" class="menu-item active">
-            <i class='bx bx-news'></i> Kelola Berita
-        </a>
-        <a href="{{ route('admin.galeri.index') }}" class="menu-item">
-            <i class='bx bx-image-alt'></i> Kelola Galeri
-        </a>
-        
-        <hr class="my-4 opacity-50">
-        
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="menu-item w-100 border-0 bg-transparent text-danger">
-                <i class='bx bx-log-out'></i> Logout
-            </button>
-        </form>
-    </aside>
+    @include('admin.partials.sidebar')
+
 
     <main class="main-content">
         <div class="mb-4">
@@ -192,7 +172,7 @@
                         @csrf
                         <div class="mb-4">
                             <label class="form-label fw-bold">Judul Berita</label>
-                            <input type="text" name="judul" class="form-control form-control-lg @error('judul') is-invalid @enderror" placeholder="Contoh: 5 Resep Pasta Rumahan yang Simple" value="{{ old('judul') }}" required>
+                            <input type="text" name="judul" class="form-control form-control-lg @error('judul') is-invalid @enderror" placeholder="Tuliskan Judul Berita" value="{{ old('judul') }}" required>
                             @error('judul') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
 
@@ -227,7 +207,7 @@
                 <div class="card-form border-start border-primary border-4">
                     <h6 class="fw-bold mb-3"><i class='bx bx-bulb text-warning me-2'></i>Tips Menulis</h6>
                     <ul class="text-muted small ps-3">
-                        <li class="mb-2">Gunakan judul yang menarik agar pembaca penasaran.</li>
+                        <li class="mb-2">Gunakan judul yang mencontohrik agar pembaca penasaran.</li>
                         <li class="mb-2">Pastikan gambar fokus pada objek makanan (Food Porn).</li>
                         <li>Gunakan paragraf yang tidak terlalu panjang agar mudah dibaca di HP.</li>
                     </ul>
