@@ -21,11 +21,9 @@
 </head>
 <body class="bg-white">
 
-    <!-- ===== NAVBAR ===== -->
     <nav class="flex justify-between items-center px-6 md:px-24 py-6 md:py-10 absolute w-full z-50 text-white">
         <div class="text-xl md:text-2xl font-black uppercase tracking-[0.2em]">Tasty Food</div>
 
-        <!-- Desktop Menu -->
         <ul class="hidden md:flex gap-12 text-[13px] font-bold uppercase tracking-widest">
             <li><a href="{{ route('home') }}" class="hover:text-zinc-300 transition-all">Home</a></li>
             <li><a href="{{ route('tentang') }}" class="text-white border-b-2 border-white pb-1">Tentang</a></li>
@@ -34,7 +32,6 @@
             <li><a href="{{ route('kontak') }}" class="hover:text-zinc-300 transition-all">Kontak</a></li>
         </ul>
 
-        <!-- Hamburger (Mobile) -->
         <button onclick="toggleMenu()" class="md:hidden flex flex-col gap-1.5 z-50" aria-label="Menu">
             <span class="w-6 h-0.5 bg-white block"></span>
             <span class="w-6 h-0.5 bg-white block"></span>
@@ -42,7 +39,6 @@
         </button>
     </nav>
 
-    <!-- Mobile Fullscreen Menu -->
     <div id="mobile-menu" class="fixed inset-0 bg-zinc-900 z-40 flex-col items-center justify-center gap-8 text-center">
         <button onclick="toggleMenu()" class="absolute top-6 right-6 text-white text-3xl font-light">&times;</button>
         <ul class="flex flex-col gap-6 text-lg font-black uppercase text-white">
@@ -54,24 +50,20 @@
         </ul>
     </div>
 
-    <!-- ===== HERO ===== -->
     <section class="about-hero flex items-end pb-12 md:pb-24 px-6 md:px-24">
         <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight">Tentang Kami</h1>
     </section>
 
-    <!-- ===== SECTION 1: Tentang ===== -->
     <section class="px-6 md:px-24 py-16 md:py-32 flex flex-col md:flex-row gap-10 md:gap-16 items-start">
-        <!-- Text -->
         <div class="w-full md:w-1/2">
             <h2 class="text-2xl md:text-3xl font-black uppercase mb-6 tracking-[0.2em] text-zinc-800">Tasty Food</h2>
             <p class="text-zinc-800 font-bold text-sm leading-loose mb-6">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum commodo, dui diam convallis arcu, eget consectetur ex sem eget lacus. Fusce sit amet viverra ante.
+                Tasty Food lahir dari semangat untuk menyajikan harmoni antara kesehatan dan kelezatan di atas piring Anda. Kami percaya bahwa makanan bergizi tidak harus membosankan, dan setiap bahan alami memiliki cerita rasa yang luar biasa.
             </p>
             <p class="text-zinc-500 text-sm leading-loose font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ornare, augue eu rutrum commodo, dui diam convallis arcu, eget consectetur ex sem eget lacus. Nullam vitae dignissim neque, vel luctus ex. Fusce sit amet viverra ante.
+                Berawal dari dapur kecil di jantung kota, kami kini tumbuh menjadi destinasi bagi para pecinta kuliner yang peduli akan kualitas hidup. Kami menjaga standar tinggi mulai dari pemilihan bahan organik hingga teknik memasak yang menjaga nutrisi tetap utuh demi kepuasan pelanggan kami.
             </p>
         </div>
-        <!-- Images -->
         <div class="w-full md:w-1/2 flex gap-4 md:gap-6">
             <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
                  class="w-1/2 h-56 sm:h-72 md:h-[450px] object-cover rounded-[24px] md:rounded-[40px] shadow-2xl" alt="Food 1">
@@ -80,49 +72,41 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 2: Visi ===== -->
     <section class="px-6 md:px-24 py-12 md:py-24 flex flex-col md:flex-row gap-10 md:gap-20 items-center">
-        <!-- Images -->
         <div class="w-full md:w-1/2 flex gap-4 md:gap-6 order-2 md:order-1">
             <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1"
                  class="w-1/2 h-52 sm:h-64 md:h-[380px] object-cover rounded-[24px] md:rounded-[40px] shadow-xl" alt="Visi 1">
             <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af"
                  class="w-1/2 h-52 sm:h-64 md:h-[380px] object-cover rounded-[24px] md:rounded-[40px] shadow-xl" alt="Visi 2">
         </div>
-        <!-- Text -->
         <div class="w-full md:w-1/2 order-1 md:order-2">
             <h2 class="text-2xl md:text-3xl font-black uppercase mb-6 tracking-[0.2em] text-zinc-800">Visi</h2>
             <p class="text-zinc-500 text-sm md:text-[15px] leading-loose font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce scelerisque magna aliquet cursus tempus. Duis viverra metus et turpis elementum elementum. Aliquam rutrum placerat tellus et suscipit. Curabitur facilisis luctus vitae eros malesuada eleifend. Maecenas eget tellus odio. Phasellus vestibulum turpis ac sem commodo, at posuere eros consequat.
+                Menjadi pemimpin dalam industri kuliner sehat yang menginspirasi masyarakat untuk menjalani gaya hidup berkualitas melalui edukasi rasa dan penyajian hidangan yang transparan, autentik, serta berkelanjutan bagi lingkungan.
             </p>
         </div>
     </section>
 
-    <!-- ===== SECTION 3: Misi ===== -->
     <section class="px-6 md:px-24 py-12 md:py-32 flex flex-col md:flex-row gap-10 md:gap-20 items-center mb-6 md:mb-10">
-        <!-- Text -->
         <div class="w-full md:w-1/2">
             <h2 class="text-2xl md:text-3xl font-black uppercase mb-6 tracking-[0.2em] text-zinc-800">Misi</h2>
             <p class="text-zinc-500 text-sm md:text-[15px] leading-loose font-medium">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce scelerisque magna aliquet cursus tempus. Duis viverra metus et turpis elementum elementum. Aliquam rutrum placerat tellus et suscipit. Curabitur facilisis luctus vitae eros malesuada eleifend. Maecenas eget tellus odio. Phasellus vestibulum turpis ac sem commodo, at posuere eros consequat.
+                Kami berkomitmen untuk mendukung petani lokal dengan menggunakan bahan baku segar setiap hari. Kami terus berinovasi dalam menciptakan menu yang menggabungkan superfood dengan cita rasa tradisional, serta memberikan pelayanan yang hangat karena bagi kami, setiap pelanggan adalah bagian dari keluarga besar Tasty Food.
             </p>
         </div>
-        <!-- Image -->
         <div class="w-full md:w-1/2">
             <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288"
                  class="w-full h-64 sm:h-80 md:h-[400px] object-cover rounded-[28px] md:rounded-[45px] shadow-2xl" alt="Misi Image">
         </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
     <footer class="bg-zinc-900 text-white px-6 md:px-20 pt-16 md:pt-28 pb-10">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-20 mb-16 md:mb-24">
 
-            <!-- Brand -->
             <div class="col-span-2 md:col-span-1">
                 <h3 class="text-xl md:text-2xl font-black uppercase mb-6 tracking-widest">Tasty Food</h3>
                 <p class="text-zinc-200 text-sm leading-loose italic font-bold">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Membangun gaya hidup sehat melalui hidangan lezat dan berkualitas. Kami percaya bahwa makanan bergizi adalah investasi terbaik untuk masa depan Anda.
                 </p>
                 <div class="flex gap-4 mt-8">
                     <div class="bg-zinc-800 w-10 h-10 rounded-full flex items-center justify-center shadow-lg">
@@ -134,7 +118,6 @@
                 </div>
             </div>
 
-            <!-- Useful Links -->
             <div>
                 <h4 class="font-black text-base md:text-lg mb-6 italic tracking-wider">Useful Links</h4>
                 <ul class="text-zinc-200 text-sm space-y-3 italic font-bold">
@@ -145,7 +128,6 @@
                 </ul>
             </div>
 
-            <!-- Privacy -->
             <div>
                 <h4 class="font-black text-base md:text-lg mb-6 italic tracking-wider">Privacy</h4>
                 <ul class="text-zinc-200 text-sm space-y-3 italic font-bold">
@@ -156,7 +138,6 @@
                 </ul>
             </div>
 
-            <!-- Contact -->
             <div class="col-span-2 md:col-span-1">
                 <h4 class="font-black text-base md:text-lg mb-6 italic tracking-wider">Contact Info</h4>
                 <ul class="text-zinc-200 text-sm space-y-4 italic font-bold">

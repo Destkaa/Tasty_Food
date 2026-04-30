@@ -8,22 +8,37 @@ use App\Http\Controllers\GoogleController;
 
 /*
 |--------------------------------------------------------------------------
-| 1. RUTE PUBLIK
+| 1. RUTE PUBLIK (Bisa diakses siapa saja)
 |--------------------------------------------------------------------------
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
-Route::get('/berita/{id}', [HomeController::class, 'showBerita'])->name('berita.show');
 Route::get('/tentang', function () { return view('tentang'); })->name('tentang');
 Route::get('/galeri', [HomeController::class, 'galeri'])->name('galeri');
 Route::get('/kontak', function () { return view('kontak'); })->name('kontak');
-
-// --- TAMBAHAN: Rute Kirim Pesan dari Halaman Kontak ---
 Route::post('/kontak/kirim', [HomeController::class, 'kirimPesan'])->name('kontak.kirim');
 
 /*
 |--------------------------------------------------------------------------
-| 2. AUTENTIKASI & REDIRECT SYSTEM
+| 2. RUTE TERPROTEKSI (Harus Login untuk Baca Detail)
+|--------------------------------------------------------------------------
+| Di sini kita simpan route detail berita agar jika diklik, 
+| Laravel otomatis menyuruh login.
+*/
+/*
+|--------------------------------------------------------------------------
+| RUTE TERPROTEKSI (Harus Login)
+|--------------------------------------------------------------------------
+*/
+Route::middleware(['auth'])->group(function () {
+    Route::get('/berita/{id}', [HomeController::class, 'showBerita'])->name('berita.show');
+    Route::get('/tentang', function () { return view('tentang'); })->name('tentang'); // Pindahkan ke sini
+    Route::get('/galeri', [HomeController::class, 'galeri'])->name('galeri'); // Pindahkan ke sini
+});
+
+/*
+|--------------------------------------------------------------------------
+| 3. AUTENTIKASI & REDIRECT SYSTEM
 |--------------------------------------------------------------------------
 */
 Auth::routes();
@@ -35,8 +50,8 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 // Filter role setelah login
 Route::get('/redirect-filter', function () {
     if (Auth::check()) {
-        return Auth::user()->role === 'admin' 
-            ? redirect()->route('admin.dashboard') 
+        return Auth::user()->role === 'admin'
+            ? redirect()->route('admin.dashboard')
             : redirect()->route('home');
     }
     return redirect()->route('home');
@@ -49,11 +64,11 @@ Route::get('/home', function () {
 
 /*
 |--------------------------------------------------------------------------
-| 3. RUTE KHUSUS ADMIN (Prefix: /admin)
+| 4. RUTE KHUSUS ADMIN (Prefix: /admin)
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'role_admin'])->prefix('admin')->group(function () {
-    
+
     // --- Dashboard ---
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::post('/hapus-riwayat', [AdminController::class, 'clearHistory'])->name('admin.hapus_riwayat');
@@ -72,7 +87,7 @@ Route::middleware(['auth', 'role_admin'])->prefix('admin')->group(function () {
     Route::put('/galeri/update/{id}', [AdminController::class, 'updateGaleri'])->name('admin.galeri.update');
     Route::delete('/galeri/hapus/{id}', [AdminController::class, 'destroyGaleri'])->name('admin.galeri.destroy');
 
-    // --- TAMBAHAN: Manajemen Pesan Masuk (Inbox) ---
+    // --- Manajemen Pesan Masuk ---
     Route::get('/pesan', [AdminController::class, 'indexPesan'])->name('admin.pesan.index');
     Route::delete('/pesan/hapus/{id}', [AdminController::class, 'destroyPesan'])->name('admin.pesan.destroy');
 
